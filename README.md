@@ -1,0 +1,2 @@
+# IonicFirebaseApp
+Ionic Firebase App

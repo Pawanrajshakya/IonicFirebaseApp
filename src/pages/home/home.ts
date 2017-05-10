@@ -4,16 +4,20 @@ import { NavController } from 'ionic-angular';
 
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+
+
   user: any;// Observable<FirebaseListObservable.User>
 
   items: FirebaseListObservable<any[]>;
   msgVal: string = '';
+
 
   constructor(public navCtrl: NavController, public afdb: AngularFireDatabase, public afAuth: AngularFireAuth) {
     this.items = afdb.list('/message', {
@@ -28,7 +32,8 @@ export class HomePage {
   }
 
   login() {
-    this.afAuth.auth.signInAnonymously();
+    //this.afAuth.auth.signInWithEmailAndPassword("pawanrajshakya@gmai.com","Password@1");
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
   }
 
   logout() {

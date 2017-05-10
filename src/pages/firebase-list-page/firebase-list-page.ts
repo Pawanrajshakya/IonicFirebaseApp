@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
-/**
- * Generated class for the FirebaseListPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-firebase-list-page',
@@ -14,11 +10,29 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FirebaseListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  items: FirebaseListObservable<any>;
+
+  constructor(
+    public navCtrl: NavController
+    , public navParams: NavParams
+    , afdb: AngularFireDatabase
+    , afAuth: AngularFireAuth) {
+    this.items = afdb.list('/list');
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FirebaseListPage');
+  addItem(newText: string) {
+    this.items.push({ text: newText, value: "" });
   }
 
+  updateItem(key: string, newText: string, newValue: string) {
+    this.items.update(key, { text: newText, value: newValue });
+  }
+
+  deleteItem(key: string) {
+    this.items.remove(key);
+  }
+
+  deleteEverything() {
+    this.items.remove();
+  }
 }

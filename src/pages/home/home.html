@@ -7,8 +7,11 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
+  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button> {{(user | async)?.uid}}
+  <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="send($event.target.value)"
+    [(ngModel)]="msgVal" />
+  <div id="details-container">
+    <p *ngFor="let item of items | async">{{item.message}}<button (click)="delete(item)">Delete</button></p>
+  </div>
 </ion-content>

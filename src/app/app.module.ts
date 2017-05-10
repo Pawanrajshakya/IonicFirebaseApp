@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabPage } from '../pages/tab-page/tab-page';
+import { FirebaseObjectPage } from '../pages/firebase-object-page/firebase-object-page';
+import { FirebaseListPage } from '../pages/firebase-list-page/firebase-list-page';
 
 import {HttpModule} from '@angular/http';
 
@@ -28,7 +30,9 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    TabPage
+    TabPage,
+    FirebaseObjectPage,
+    FirebaseListPage
   ],
   imports: [
     BrowserModule,
@@ -37,12 +41,15 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    TabPage
+    TabPage,
+    FirebaseObjectPage,
+    FirebaseListPage
   ],
   providers: [
     StatusBar,

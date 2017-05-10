@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>FB Object Page</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h1>{{persons | async | json}}</h1>
+    <input type="text" #newname placeholder="Name"/>
+    <input type="text" #newage placeholder="Age"/>
+  
+  <button ion-button (click)="save(newname.value)">Set Name</button>
+  <button ion-button (click)="update(newage.value)">Update Age</button>
+  <button ion-button (click)="delete()">Delete</button>
+  
+</ion-content>

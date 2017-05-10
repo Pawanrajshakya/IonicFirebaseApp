@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
 import {HomePage} from '../home/home';
+import {FirebaseObjectPage} from '../firebase-object-page/firebase-object-page'
+import {FirebaseListPage} from '../firebase-list-page/firebase-list-page'
 
 @Component({
   selector: 'page-tab-page',
@@ -9,7 +10,7 @@ import {HomePage} from '../home/home';
 export class TabPage {
 
   homePage: Component = HomePage;
-  searchPage: Component = HomePage;
-  aboutPage: Component = HomePage;
+  objectPage: Component = FirebaseObjectPage;
+  listPage: Component = FirebaseListPage;
   syncPage: Component = HomePage;
 }

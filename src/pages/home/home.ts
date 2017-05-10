@@ -11,7 +11,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class HomePage {
   user: any;// Observable<FirebaseListObservable.User>
-  persons: FirebaseObjectObservable<any[]>;
+  persons1: FirebaseObjectObservable<any[]>;
+  persons2: FirebaseObjectObservable<any[]>;
+
   items: FirebaseListObservable<any[]>;
   msgVal: string = '';
 
@@ -21,6 +23,16 @@ export class HomePage {
         limitToLast: 50
       }
     });
+
+    this.persons1 = afdb.object('/p3');
+    this.persons1.set({ name: "Pawan3" });
+
+    this.persons2 = afdb.object('/p2');
+    this.persons2.update({ name: "Pawan" });
+    this.persons2.update({ age: "12" });
+    
+    this.persons1.remove();
+
     this.user = this.afAuth.authState;
   }
 
@@ -38,7 +50,7 @@ export class HomePage {
     this.msgVal = '';
   }
 
-  delete(item){
+  delete(item) {
     console.log(item);
     this.items.remove(item.$key);
   }

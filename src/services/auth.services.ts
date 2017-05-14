@@ -11,12 +11,9 @@ export class authService {
     constructor(public auth: AngularFireAuth) {
     }
 
-    // setUser(user: any) {
-    //     this.auth.authState.subscribe((data)=>{
-    //         console.log('>>', data);
-    //     });
-    //     this.user = user;
-    // }
+    createUser(email: string, password: string) {
+        return this.auth.auth.createUserWithEmailAndPassword(email, password);
+    }
 
     getUser(): Promise<any> {
         return new Promise((resolve, reject) => {
@@ -27,11 +24,14 @@ export class authService {
                 resolve(data);
             });
         })
-
     }
 
     loginWithGoogle() {
         return this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    }
+
+    loginWithPassword(email: string, password: string) {
+        return this.auth.auth.signInWithEmailAndPassword(email, password);
     }
 
     logout() {

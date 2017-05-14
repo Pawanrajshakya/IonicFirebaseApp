@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 302:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(34);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firebase_object_page__ = __webpack_require__(112);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirebaseObjectPageModule", function() { return FirebaseObjectPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shopping__ = __webpack_require__(57);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ShoppingModule", function() { return ShoppingModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,26 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FirebaseObjectPageModule = (function () {
-    function FirebaseObjectPageModule() {
+var ShoppingModule = (function () {
+    function ShoppingModule() {
     }
-    return FirebaseObjectPageModule;
+    return ShoppingModule;
 }());
-FirebaseObjectPageModule = __decorate([
+ShoppingModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__firebase_object_page__["a" /* FirebaseObjectPage */],
+            __WEBPACK_IMPORTED_MODULE_2__shopping__["a" /* Shopping */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firebase_object_page__["a" /* FirebaseObjectPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__shopping__["a" /* Shopping */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__firebase_object_page__["a" /* FirebaseObjectPage */]
+            __WEBPACK_IMPORTED_MODULE_2__shopping__["a" /* Shopping */]
         ]
     })
-], FirebaseObjectPageModule);
+], ShoppingModule);
 
-//# sourceMappingURL=firebase-object-page.module.js.map
+//# sourceMappingURL=shopping.module.js.map
 
 /***/ })
 

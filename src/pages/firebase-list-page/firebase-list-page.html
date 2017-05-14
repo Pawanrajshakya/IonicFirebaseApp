@@ -10,13 +10,12 @@
 <ion-content padding>
   <ul>
     <li *ngFor="let item of items | async">
-      <input type="text" #updatetext [value]="item.text" />
-      <input type="text" #updatevalue [value]="item.value" />
-      <button (click)="updateItem(item.$key, updatetext.value, updatevalue.value)">Update</button>
+      <input type="text" #updateText [value]="item.text" />
+      <button (click)="updateItem(item.$key, updateText.value)">Update</button>
       <button (click)="deleteItem(item.$key)">Delete</button>
     </li>
   </ul>
-  <input type="text" #newitem />
-  <button (click)="addItem(newitem.value)">Add</button>
+  <input type="text" #text />  
+  <button (click)="addItem(text.value)">Add</button>
   <button (click)="deleteEverything()">Delete All</button>
 </ion-content>

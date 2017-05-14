@@ -17,11 +17,11 @@ export class FirebaseListPage {
     , public navParams: NavParams
     , afdb: AngularFireDatabase
     , afAuth: AngularFireAuth) {
-    this.items = afdb.list('/list');
+    this.items = afdb.list('/category');
   }
 
-  addItem(newText: string) {
-    this.items.push({ text: newText, value: "" });
+  addItem(text: string) {
+    this.items.push({ text: text, isActive: true });
   }
 
   updateItem(key: string, newText: string, newValue: string) {

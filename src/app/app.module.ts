@@ -7,20 +7,21 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabPage } from '../pages/pages';
-import { Shopping} from '../pages/shopping/shopping';
-import { Login} from '../pages/login/login';
+import { Shopping } from '../pages/shopping/shopping';
+import { Login } from '../pages/login/login';
 
 import { FirebaseObjectPage } from '../pages/firebase-object-page/firebase-object-page';
 import { FirebaseListPage } from '../pages/firebase-list-page/firebase-list-page';
 
-import {HttpModule} from '@angular/http';
+import { HttpModule } from '@angular/http';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
-import { authService } from '../services/auth.services';
+import { AuthService } from '../services/auth.services';
+import { ToastService } from '../services/toast.service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA5VnxFiVaYkmZ9FDsCVEyu6hzFc30LV4I",
@@ -49,7 +50,7 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
-    
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,7 +66,8 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    authService
+    AuthService,
+    ToastService
   ]
 })
 export class AppModule { }

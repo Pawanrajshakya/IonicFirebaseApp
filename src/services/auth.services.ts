@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 
 
 @Injectable()
-export class authService {
+export class AuthService {
 
     //user: any = {};
 

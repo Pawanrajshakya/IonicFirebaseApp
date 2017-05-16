@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Shopping } from '../shopping/shopping';
 import { Login } from '../login/login';
+import { Profile } from '../profile/profile';
 
 import { FirebaseObjectPage } from '../firebase-object-page/firebase-object-page'
 import { FirebaseListPage } from '../firebase-list-page/firebase-list-page'
@@ -11,8 +12,8 @@ import { FirebaseListPage } from '../firebase-list-page/firebase-list-page'
 })
 export class TabPage {
 
-  homePage: Component = Login;
+  homePage: Component = Shopping;
   objectPage: Component = FirebaseObjectPage;
   listPage: Component = FirebaseListPage;
-  syncPage: Component = Shopping;
+  profilePage: Component = Profile;
 }

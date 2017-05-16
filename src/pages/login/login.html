@@ -4,22 +4,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-item *ngIf="!!user.displayName">{{user.displayName}}
-  </ion-item>
-  <ion-item *ngIf="!!user.email">{{user.email}}</ion-item>
-  <ion-item *ngIf="!!user.email"><button ion-button (click)="logout()">Logout</button></ion-item>
-  <ion-item *ngIf="!user.email">
+  <ion-item>
     <ion-label floating>Username</ion-label>
     <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
   </ion-item>
-  <ion-item *ngIf="!user.email">
+  <ion-item>
     <ion-label floating>Password</ion-label>
     <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
   </ion-item>
-  <ion-item *ngIf="!user.email">
-    <button color="secondary" ion-button outline (click)="loginWithPassword(username, password)">Login</button>
-    <button color="dark" ion-button outline item-right (click)="signup(username, password)">Signup</button>
-    <button color="primary" ion-button outline (click)="login()">Google Login</button>
-  </ion-item>
-  
+  <button ion-button full (click)="loginWithPassword(username, password)">Login</button>
+  <button ion-button full item-right (click)="signup(username, password)">Sign Up</button>
+  <button ion-button full (click)="login()">Login with Google</button>
 </ion-content>

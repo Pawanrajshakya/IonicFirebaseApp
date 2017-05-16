@@ -6,7 +6,7 @@ export class ToastService {
 
     public constructor(public toastCtrl: ToastController) { }
 
-    public present(message: string, position: string = "middle", duration: number = 2000) {
+    public present(message: string, position: string = "middle", duration: number = 5000) {
         let toast = this.toastCtrl.create({
             message: message || "",
             duration: duration,

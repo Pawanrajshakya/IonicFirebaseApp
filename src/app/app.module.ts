@@ -3,26 +3,29 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
+
+//pages decleration goes here
 import { HomePage } from '../pages/home/home';
 import { TabPage } from '../pages/pages';
 import { Shopping } from '../pages/shopping/shopping';
 import { Login } from '../pages/login/login';
+import { Profile } from '../pages/profile/profile';
 
+//firebase decleration goes here
 import { FirebaseObjectPage } from '../pages/firebase-object-page/firebase-object-page';
 import { FirebaseListPage } from '../pages/firebase-list-page/firebase-list-page';
-
-import { HttpModule } from '@angular/http';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-
+//service decleration goes here
 import { AuthService } from '../services/auth.services';
 import { ToastService } from '../services/toast.service';
 
+//firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyA5VnxFiVaYkmZ9FDsCVEyu6hzFc30LV4I",
   authDomain: "fir-sampleappdb.firebaseapp.com",
@@ -41,7 +44,8 @@ export const firebaseConfig = {
     FirebaseObjectPage,
     FirebaseListPage,
     Shopping,
-    Login
+    Login,
+    Profile
   ],
   imports: [
     BrowserModule,
@@ -60,7 +64,8 @@ export const firebaseConfig = {
     FirebaseObjectPage,
     FirebaseListPage,
     Shopping,
-    Login
+    Login,
+    Profile
   ],
   providers: [
     StatusBar,

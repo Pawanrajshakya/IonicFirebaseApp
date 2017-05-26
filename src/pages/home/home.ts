@@ -1,53 +1,32 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-//import { Observable } from 'rxjs/Rx';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { AuthService } from '../../services/auth.services';
 
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import * as firebase from 'firebase/app';
+import { Login } from '../../pages/login/login'
 
+@IonicPage()
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
-export class HomePage {
+export class Home {
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public authService: AuthService,
+    public modalCtrl: ModalController) {
 
-  user: any;// Observable<FirebaseListObservable.User>
-
-  items: FirebaseListObservable<any[]>;
-  msgVal: string = '';
-
-
-  constructor(public navCtrl: NavController, public afdb: AngularFireDatabase, public afAuth: AngularFireAuth) {
-    this.items = afdb.list('/message', {
-      query: {
-        limitToLast: 50
-      }
-    });
-
-    
-
-    this.user = this.afAuth.authState;
   }
 
   login() {
-    //this.afAuth.auth.signInWithEmailAndPassword("pawanrajshakya@gmai.com","Password@1");
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    let modal = this.modalCtrl.create(Login);
+    modal.onDidDismiss((data) => {
+      console.log(data);
+    });
+    modal.present();
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.authService.logout().then(() => { }).catch((error) => { console.log(error); })
   }
 
-  send(desc: string) {
-    console.log(this.items);
-    this.items.push({ message: desc });
-    this.msgVal = '';
-  }
-
-  delete(item) {
-    console.log(item);
-    this.items.remove(item.$key);
-  }
 }

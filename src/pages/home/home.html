@@ -1,17 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-buttons end (click)="login()" *ngIf="!authService.uid">
+      <button ion-button icon-right>
+        Sign-In
+        <ion-icon name="log-in"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end (click)="logout()" *ngIf="!!authService.uid">
+      <button ion-button icon-right>
+        Sign-Out
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Welcome</ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <button (click)="login()" *ngIf="!(user | async)?.uid">Anonymous Login</button>
-  <button (click)="logout()" *ngIf="(user | async)?.uid">Logout</button> {{(user | async)?.uid}}
-  <input type="text" id="message" *ngIf="(user | async)?.uid" placeholder="What is it that you do?" (keyup.enter)="send($event.target.value)"
-    [(ngModel)]="msgVal" />
-  <div id="details-container">
-    <p *ngFor="let item of items | async">{{item.message}}<button (click)="delete(item)">Delete</button></p>
-  </div>
+<ion-content>
 </ion-content>

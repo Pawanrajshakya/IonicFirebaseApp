@@ -8,11 +8,11 @@ import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 
 //pages decleration goes here
-import { HomePage } from '../pages/home/home';
 import { TabPage } from '../pages/pages';
 import { Shopping } from '../pages/shopping/shopping';
 import { Login } from '../pages/login/login';
 import { Profile } from '../pages/profile/profile';
+import { Home } from '../pages/home/home';
 
 //firebase decleration goes here
 import { FirebaseObjectPage } from '../pages/firebase-object-page/firebase-object-page';
@@ -24,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //service decleration goes here
 import { AuthService } from '../services/auth.services';
 import { ToastService } from '../services/toast.service';
+import { MenuService } from '../services/menu.services';
 
 //firebase configuration
 export const firebaseConfig = {
@@ -39,13 +40,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     TabPage,
     FirebaseObjectPage,
     FirebaseListPage,
     Shopping,
     Login,
-    Profile
+    Profile,
+    Home
   ],
   imports: [
     BrowserModule,
@@ -54,25 +55,25 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     TabPage,
     FirebaseObjectPage,
     FirebaseListPage,
     Shopping,
     Login,
-    Profile
+    Profile,
+    Home
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     AuthService,
-    ToastService
+    ToastService,
+    MenuService
   ]
 })
 export class AppModule { }

@@ -1,18 +1,44 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="menu">
     <ion-title>Login</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Close</span>
+        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
-  </ion-item>
-  <button ion-button full (click)="loginWithPassword(username, password)">Login</button>
-  <button ion-button full item-right (click)="signup(username, password)">Sign Up</button>
-  <button ion-button full (click)="login()">Login with Google</button>
+  <div>
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" [value]="username" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [value]="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-list no-lines>
+      <ion-item>
+        <button ion-button round small item-right (click)="loginWithPassword(username, password)">Login</button>
+        <button ion-button clear item-left (click)="signup(username, password)">Sign Up</button>
+      </ion-item>
+      <ion-item>
+        <button ion-button block (click)="login()">Login with Google</button>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{authService.uid}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{authService.displayName}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{authService.photoURL}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{authService.email}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

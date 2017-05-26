@@ -1,0 +1,86 @@
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+import { BrowserModule } from '@angular/platform-browser';
+import { ErrorHandler, NgModule } from '@angular/core';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
+import { MyApp } from './app.component';
+//pages decleration goes here
+import { TabPage } from '../pages/pages';
+import { Shopping } from '../pages/shopping/shopping';
+import { Login } from '../pages/login/login';
+import { Profile } from '../pages/profile/profile';
+import { Home } from '../pages/home/home';
+//firebase decleration goes here
+import { FirebaseObjectPage } from '../pages/firebase-object-page/firebase-object-page';
+import { FirebaseListPage } from '../pages/firebase-list-page/firebase-list-page';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+//service decleration goes here
+import { AuthService } from '../services/auth.services';
+import { ToastService } from '../services/toast.service';
+import { MenuService } from '../services/menu.services';
+//firebase configuration
+export var firebaseConfig = {
+    apiKey: "AIzaSyA5VnxFiVaYkmZ9FDsCVEyu6hzFc30LV4I",
+    authDomain: "fir-sampleappdb.firebaseapp.com",
+    databaseURL: "https://fir-sampleappdb.firebaseio.com",
+    projectId: "fir-sampleappdb",
+    storageBucket: "fir-sampleappdb.appspot.com",
+    messagingSenderId: "527144487973"
+};
+var AppModule = (function () {
+    function AppModule() {
+    }
+    return AppModule;
+}());
+AppModule = __decorate([
+    NgModule({
+        declarations: [
+            MyApp,
+            TabPage,
+            FirebaseObjectPage,
+            FirebaseListPage,
+            Shopping,
+            Login,
+            Profile,
+            Home
+        ],
+        imports: [
+            BrowserModule,
+            IonicModule.forRoot(MyApp),
+            HttpModule,
+            AngularFireModule.initializeApp(firebaseConfig),
+            AngularFireDatabaseModule,
+            AngularFireAuthModule
+        ],
+        bootstrap: [IonicApp],
+        entryComponents: [
+            MyApp,
+            TabPage,
+            FirebaseObjectPage,
+            FirebaseListPage,
+            Shopping,
+            Login,
+            Profile,
+            Home
+        ],
+        providers: [
+            StatusBar,
+            SplashScreen,
+            { provide: ErrorHandler, useClass: IonicErrorHandler },
+            AuthService,
+            ToastService,
+            MenuService
+        ]
+    })
+], AppModule);
+export { AppModule };
+//# sourceMappingURL=app.module.js.map

@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+//import { AuthService } from '../../services/auth.services';
+import { ToastService } from '../../services/toast.service';
+import { Login } from '../login/login';
 
-/**
- * Generated class for the Profile page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -14,11 +11,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Profile {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public toastService: ToastService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Profile');
+
+  logout() {
+    // this.authService.logout().then((data) => {
+    //   //this.navCtrl.popTo(Login);
+    //   // this.navCtrl.popAll().then(()=>{
+    //   this.authService.getUser().then(() => {
+    //     //this.navCtrl.setRoot(Login);
+    //   });
+
+    //   // });
+    // }).catch((error) => {
+
+    // })
   }
 
 }

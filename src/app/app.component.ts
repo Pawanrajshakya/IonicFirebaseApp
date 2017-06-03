@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { Home } from '../pages/home/home';
+import { Home, Login } from '../pages/pages';
 
 import { MenuService } from '../services/menu.services';
 import { AuthService } from '../services/auth.services';
@@ -19,6 +19,7 @@ export class MyApp {
   constructor(platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
+    public modalCtrl: ModalController,
     public menuService: MenuService,
     public authService: AuthService) {
     platform.ready().then(() => {
@@ -30,19 +31,26 @@ export class MyApp {
     });
   }
 
-  prepareMenu(){
-    this.menuService.getObserable().subscribe((data)=>{
+  prepareMenu() {
+    this.menuService.getObserable().subscribe((data) => {
       console.log('menu', data);
       this.pages = data;
     })
   }
 
   menuClicked(item: { title: string, description: string, component: any, icon: string, active: boolean }) {
-    if (item.component = 'Logout') {
-      this.authService.logout().then(() => {
-      }).catch((error) => {
-        console.log(error);
-      });
+    switch (item.component) {
+      case 'Logout':
+        this.authService.logout().then(() => {
+        }).catch((error) => {
+          console.log(error);
+        });
+        break;
+      case 'Login':
+        this.modalCtrl.create(Login).present();
+
+      default:
+        break;
     }
   }
 }

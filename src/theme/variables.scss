@@ -30,13 +30,16 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
   report:     #f1ab41,
-  menu:       #E4ED61,
+  menu:       #6960EC,
   label:      #fff,
   label-light: #cccccc,
   font-color:   #0e2f44,
   search-color: #cbcbcb
 );
-
+$background-color: #FFD700;
+$menu-background:	#222;
+$text-color: #6960EC;
+$text-input-placeholder-color: #fff;
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here

@@ -5,13 +5,13 @@
     </button>
     <ion-buttons end (click)="login()" *ngIf="!authService.uid">
       <button ion-button icon-right>
-        Sign-In
+        Log-In
         <ion-icon name="log-in"></ion-icon>
       </button>
     </ion-buttons>
     <ion-buttons end (click)="logout()" *ngIf="!!authService.uid">
       <button ion-button icon-right>
-        Sign-Out
+        Log-Out
         <ion-icon name="log-out"></ion-icon>
       </button>
     </ion-buttons>

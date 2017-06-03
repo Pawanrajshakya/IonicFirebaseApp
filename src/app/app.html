@@ -2,7 +2,7 @@
     <ion-content>
         <ion-list no-lines>
             <ion-list-header color="menu">My Menu</ion-list-header>
-            <button menuClose ion-item *ngFor="let item of pages" (click)="menuClicked(item)">
+            <button ion-item *ngFor="let item of pages" (click)="menuClicked(item)">
                 <ion-icon [name]="item.icon" item-left></ion-icon> {{ item.description }}</button>
         </ion-list>
     </ion-content>

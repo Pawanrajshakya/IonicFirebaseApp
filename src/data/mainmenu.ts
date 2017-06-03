@@ -25,4 +25,11 @@ export default [{
     component: 'SettingsPage',
     icon: "settings",
     active: true
+}, 
+{
+    title: "Log Out",
+    description: "Log Out",
+    component: 'Logout',
+    icon: 'log-out',
+    active: true
 }]

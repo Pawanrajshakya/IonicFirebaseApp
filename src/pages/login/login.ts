@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ViewController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.services';
 import { ToastService } from '../../services/toast.service';
-import { Home } from '../home/home';
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -28,6 +26,7 @@ export class Login {
       .then(data => {
         this.viewCtrl.dismiss(false);
       }).catch(error => {
+        console.log(error);
         this.toastService.present(error.message);
       })
   }

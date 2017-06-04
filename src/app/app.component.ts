@@ -33,7 +33,6 @@ export class MyApp {
 
   prepareMenu() {
     this.menuService.getObserable().subscribe((data) => {
-      console.log('menu', data);
       this.pages = data;
     })
   }

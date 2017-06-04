@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { Transaction } from '../../models/transaction';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-// import { AngularFireAuth } from 'angularfire2/auth';
 
-@IonicPage()
 @Component({
   selector: 'page-shopping',
   templateUrl: 'shopping.html',

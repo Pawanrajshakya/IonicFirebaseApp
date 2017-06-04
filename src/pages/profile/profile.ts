@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-//import { AuthService } from '../../services/auth.services';
+import { NavController, NavParams } from 'ionic-angular';
 import { ToastService } from '../../services/toast.service';
-import { Login } from '../login/login';
 
-@IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',

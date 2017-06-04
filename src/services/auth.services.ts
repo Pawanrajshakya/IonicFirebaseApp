@@ -7,6 +7,9 @@ import { Observer } from "rxjs/Observer";
 @Injectable()
 export class AuthService {
 
+    private _isValid: boolean = false;
+    private _message: string = "";
+
     uid: string = null;
     email: string = null;
     displayName: string = null;
@@ -18,8 +21,19 @@ export class AuthService {
         });
     }
 
+    private validate(...args): boolean {
+        args.forEach((data) => {
+            console.log(data.trim.length === 0);
+            if (data.trim.length === 0)
+                return false;
+        });
+        return true;
+    }
+
     createUser(email: string, password: string) {
-        return this.auth.auth.createUserWithEmailAndPassword(email, password);
+        return new Promise((resolve, reject) => {
+            return this.auth.auth.createUserWithEmailAndPassword(this.email, password)
+        });
     }
 
     status(): boolean {
